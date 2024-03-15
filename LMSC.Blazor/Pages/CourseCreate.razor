@@ -1,0 +1,17 @@
+﻿@page "/courses/create"
+@using LMSC.Models
+@inherits CourseCreateBase
+
+<h3>Create New Course</h3>
+
+<EditForm Model="@Course">
+    <label for="courseName">Course Name</label>
+    <InputText id="courseName" />
+</EditForm>
+
+<div>
+    <textarea @bind="Description" @bind:event="oninput" />
+</div>
+<div>
+    Count: @Description.Length
+</div>

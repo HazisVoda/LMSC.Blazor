@@ -1,0 +1,36 @@
+﻿@page "/"
+@inherits CourseListBase
+
+<h3>Course List</h3>
+<a href="courses/create" class="btn btn-primary m-1">Create Course</a>
+<hr />
+
+@if(Courses == null)
+{
+    <div class="spinner">
+
+    </div>
+}
+else { 
+<div class="card-deck">
+    @foreach(var course in Courses)
+    {
+        <div class="card-m-3" style="min-width: 18rem; max-width:30.5%;">
+            <div class="card-header">
+                <h3>@course.CourseName</h3>
+            </div>
+            <img class="card-img-top imageThumbnail" src="@course.PhotoPath" />
+            <div class="card-footer text-center">
+                <h6>@course.CourseDetails</h6>
+            </div>
+            <div class="card-footer text-center">
+                <a href="@($"editcourse/{course.CourseID}")" class="btn btn-primary m-1">Edit</a>
+
+                <a href="@($"coursedetails/{course.CourseID}")" class="btn btn-primary m-1">View</a>
+
+                <a href="#" class="btn btn-primary m-1">Start</a>
+            </div>
+        </div>
+    }
+</div>
+}

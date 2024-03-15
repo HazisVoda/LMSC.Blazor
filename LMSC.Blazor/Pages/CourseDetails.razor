@@ -1,0 +1,36 @@
+﻿@page "/coursedetails"
+@page "/coursedetails/{ID}"
+@inherits CourseDetailsBase
+
+<h3>Course Details</h3>
+<hr />
+
+@if (Course == null)
+{
+    <div class="spinner"></div>
+}
+else
+{
+    <div class="row justify-content-center m-3">
+        <div class="col-sm-8">
+            <div class="card">
+                <div class="card-header">
+                    <h3>@Course.CourseName</h3>
+                </div>
+
+                <div class="card-body text-center">
+                    <img class="card-img-top" src="@Course.PhotoPath" />
+
+                    <h5>Course ID: @Course.CourseID</h5>
+                    <h5>Course Details: @Course.CourseDetails</h5>
+                </div>
+
+                <div class="card-footer text-center">
+                    <a href="/" class="btn btn-primary">Back</a>
+                    <a href="#" class="btn btn-primary">Edit</a>
+                    <a href="#" class="btn btn-danger">Leave</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
